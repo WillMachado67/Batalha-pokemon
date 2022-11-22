@@ -177,5 +177,7 @@ while reset:
         reset = reset
     elif status_reset == 'N':
         reset = False
+    else:
+        print('Comando inválido')
 
 print('Obrigado por jogar Batalha pokemon.')
