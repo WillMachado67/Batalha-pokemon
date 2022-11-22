@@ -23,11 +23,11 @@ def confirm():
     while erro_select:
         print(dados_pokemon(my_pokemon))
         print('confirmar sua escolha?')
-        select = input('[S]im [N]ão\n').upper()
-        if select == 'S':
+        select = input('[1]Sim [2]Não\n')
+        if select == '1':
             erro_select = False
             true_false = False
-        elif select == 'N':
+        elif select == '2':
             erro_select = False
             true_false = True
         else:
@@ -67,13 +67,13 @@ while confirm_name:
             print('Seu nome precisa de pelomenos 4 caracteres.')
 
     print('Tem certesa que esse é seu nome?')
-    confirm1 = input('[S]im [N]ão\n').upper()
+    confirm1 = input('[1]Sim [2]Não\n')
 
-    if confirm1 == 'S':
+    if confirm1 == '1':
         confirm_name = False
         time.sleep(0.5)
         fakeClear()
-    elif confirm1 == 'N':
+    elif confirm1 == '2':
         name_player = ''
         time.sleep(0.5)
         fakeClear()
@@ -90,8 +90,8 @@ print()
 while confirm_select_pokemon:
     print(statusTreinador())
     print('Selecione seu pokemon: ')
-    select_pokemon = input('[A] Charmeleon\n[B] Wartortle\n[C] Ivysaur\n').upper()
-    if select_pokemon == 'A':
+    select_pokemon = input('[1] Charmeleon\n[2] Wartortle\n[3] Ivysaur\n')
+    if select_pokemon == '1':
         my_pokemon = charmeleon
         time.sleep(0.5)
         fakeClear()
@@ -101,7 +101,7 @@ while confirm_select_pokemon:
             my_pokemon = 'Sem Pokémon'
         fakeClear()
 
-    elif select_pokemon == 'B':
+    elif select_pokemon == '2':
         my_pokemon = wartortle
         time.sleep(0.5)
         fakeClear()
@@ -111,7 +111,7 @@ while confirm_select_pokemon:
             my_pokemon = 'Sem Pokémon'
         fakeClear()
 
-    elif select_pokemon == 'C':
+    elif select_pokemon == '3':
         my_pokemon = ivysaur
         time.sleep(0.5)
         fakeClear()
@@ -143,6 +143,7 @@ while reset:
         print('O que você deseja fazer?')
         move = input('[1]Atacar [2]Curar\n')
         time.sleep(0.5)
+        fakeClear()
 
         if move == '1':
             mewtwo['life'] = mewtwo['life'] - my_pokemon['atack']
@@ -152,7 +153,6 @@ while reset:
             print('Seu Pokemon não entendeu o comando!')
         print('\n' * 2)
         time.sleep(0.5)
-        fakeClear()
 
         if mewtwo['life'] > 0:
             print(f'{mewtwo["name"]} vida {mewtwo["life"]}')
@@ -163,21 +163,25 @@ while reset:
         print('Você perdeu! :(')
     elif mewtwo['life'] <= 0:
         print(f'Parabens você derrotou o temivel {mewtwo["name"]}')
-
-    print('Quer jogar novamente?')
-    status_reset = input('[S]im [N]ão\n').upper()
-    if status_reset == 'S':
-        if my_pokemon['name'] == 'Charmeleon':
-            my_pokemon = {'name': 'Charmeleon', 'life': 140, 'atack': 45, 'cure': 50}
-        elif my_pokemon["name"] == 'Wartortle':
-            my_pokemon = {'name': 'Wartortle', 'life': 170, 'atack': 35, 'cure': 55}
-        elif my_pokemon["name"] == 'Ivysaur':
-            my_pokemon = {'name': 'Ivysaur', 'life': 120, 'atack': 50, 'cure': 50}
-        mewtwo = {'name': 'Mewtwo', 'life': 250, 'atack': 40}
-        reset = reset
-    elif status_reset == 'N':
-        reset = False
-    else:
-        print('Comando inválido')
+    
+    reset2 = True
+    while reset2:
+        print('Quer jogar novamente?')
+        status_reset = input('[1]Sim [2]Não\n')
+        if status_reset == '1':
+            if my_pokemon['name'] == 'Charmeleon':
+                my_pokemon = {'name': 'Charmeleon', 'life': 140, 'atack': 45, 'cure': 50}
+            elif my_pokemon["name"] == 'Wartortle':
+                my_pokemon = {'name': 'Wartortle', 'life': 170, 'atack': 35, 'cure': 55}
+            elif my_pokemon["name"] == 'Ivysaur':
+                my_pokemon = {'name': 'Ivysaur', 'life': 120, 'atack': 50, 'cure': 50}
+            mewtwo = {'name': 'Mewtwo', 'life': 250, 'atack': 40}
+            reset = reset
+            reset2 = False
+        elif status_reset == '2':
+            reset = False
+            reset2 = False
+        else:
+            print('Comando inválido')
 
 print('Obrigado por jogar Batalha pokemon.')
