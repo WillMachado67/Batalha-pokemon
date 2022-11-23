@@ -6,7 +6,7 @@ def fakeClear():
 
 
 def dados_pokemon(pokemon_selected):
-    return f"Nome: {pokemon_selected['name']}\nVida: {pokemon_selected['life']}\nAtaque: {pokemon_selected['atack']}\nCura: {pokemon_selected['cure']} "
+    return f"Nome: {pokemon_selected['name']}\nVida: {pokemon_selected['life']}\nAtaque: {pokemon_selected['attack']}\nCura: {pokemon_selected['cure']} "
 
 
 def statusTreinador():
@@ -36,10 +36,10 @@ def confirm():
         return true_false
 
 
-charmeleon = {'name': 'Charmeleon', 'life': 140, 'atack': 45, 'cure': 50}
-wartortle = {'name': 'Wartortle', 'life': 170, 'atack': 35, 'cure': 55}
-ivysaur = {'name': 'Ivysaur', 'life': 120, 'atack': 50, 'cure': 50}
-mewtwo = {'name': 'Mewtwo', 'life': 250, 'atack': 40}
+charmeleon = {'name': 'Charmeleon', 'life': 140, 'attack': 45, 'cure': 50}
+wartortle = {'name': 'Wartortle', 'life': 170, 'attack': 35, 'cure': 55}
+ivysaur = {'name': 'Ivysaur', 'life': 120, 'attack': 50, 'cure': 50}
+mewtwo = {'name': 'Mewtwo', 'life': 250, 'attack': 40}
 my_pokemon = 'Sem Pokémon'
 name_player = ''
 
@@ -135,7 +135,7 @@ while reset:
     time.sleep(0.8)
     print()
     print(f'pokemon {mewtwo["name"]} apareceu')
-    print(f'nome: {mewtwo["name"]}\nvida:{mewtwo["life"]}\nAtaque: {mewtwo["atack"]}')
+    print(f'nome: {mewtwo["name"]}\nvida:{mewtwo["life"]}\nAtaque: {mewtwo["attack"]}')
     print('\n' * 2)
 
     while my_pokemon['life'] > 0 and mewtwo['life'] > 0:
@@ -146,7 +146,7 @@ while reset:
         fakeClear()
 
         if move == '1':
-            mewtwo['life'] = mewtwo['life'] - my_pokemon['atack']
+            mewtwo['life'] = mewtwo['life'] - my_pokemon['attack']
         elif move == '2':
             my_pokemon['life'] = my_pokemon['life'] + my_pokemon['cure']
         else:
@@ -157,7 +157,7 @@ while reset:
         if mewtwo['life'] > 0:
             print(f'{mewtwo["name"]} vida {mewtwo["life"]}')
             print(f'{mewtwo["name"]} atacou')
-            my_pokemon['life'] = my_pokemon['life'] - mewtwo['atack']
+            my_pokemon['life'] = my_pokemon['life'] - mewtwo['attack']
 
     if my_pokemon['life'] <= 0:
         print('Você perdeu! :(')
@@ -170,12 +170,12 @@ while reset:
         status_reset = input('[1]Sim [2]Não\n')
         if status_reset == '1':
             if my_pokemon['name'] == 'Charmeleon':
-                my_pokemon = {'name': 'Charmeleon', 'life': 140, 'atack': 45, 'cure': 50}
+                my_pokemon = {'name': 'Charmeleon', 'life': 140, 'attack': 45, 'cure': 50}
             elif my_pokemon["name"] == 'Wartortle':
-                my_pokemon = {'name': 'Wartortle', 'life': 170, 'atack': 35, 'cure': 55}
+                my_pokemon = {'name': 'Wartortle', 'life': 170, 'attack': 35, 'cure': 55}
             elif my_pokemon["name"] == 'Ivysaur':
-                my_pokemon = {'name': 'Ivysaur', 'life': 120, 'atack': 50, 'cure': 50}
-            mewtwo = {'name': 'Mewtwo', 'life': 250, 'atack': 40}
+                my_pokemon = {'name': 'Ivysaur', 'life': 120, 'attack': 50, 'cure': 50}
+            mewtwo = {'name': 'Mewtwo', 'life': 250, 'attack': 40}
             reset = reset
             reset2 = False
         elif status_reset == '2':
