@@ -33,7 +33,7 @@ def confirm():
         else:
             fakeClear()
             print('Comando inválido!')
-        return true_false
+    return true_false
 
 
 charmeleon = {'name': 'Charmeleon', 'life': 140, 'attack': 45, 'cure': 50}
@@ -151,7 +151,7 @@ while reset:
             my_pokemon['life'] = my_pokemon['life'] + my_pokemon['cure']
         else:
             print('Seu Pokemon não entendeu o comando!')
-        print('\n' * 2)
+        print('\n')
         time.sleep(0.5)
 
         if mewtwo['life'] > 0:
